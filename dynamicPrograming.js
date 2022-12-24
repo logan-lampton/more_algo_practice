@@ -48,3 +48,28 @@ function fibonacci(n, memo = []){
     return res;
 }
 // You would not need to calculate the entire other trees if you have the top value saved in the memo
+// The time complexity is O(N)
+    // Grows linearly with N
+        // (1 more per each additional number)
+    // This is a HUGE improvement
+
+// Tabulation: A bottom up approach
+    // A second option, instead of the top-down Memoization method
+    // Storing a result of a previous result in a "table" (usually an array)
+    // Usually done using iteration
+    // Better space complexity can be achieved using tabulation
+
+function tabulatedFib(n){
+    if(n <= 2) return 1;
+    // starting array
+    let fibNums = [0, 1, 1];
+    // loop for anything starting at the index of 3
+    for(let i = 3; i <= n; i++){
+        fibNums[i] = fibNums[i - 1] + fibNums[i -2];
+    }
+    return fibNums[n];
+}
+
+// unlike the memoization recursive version, the tabulated example will not hit a stack overflow
+// The time complexity of tabulation and memoization are both O(N)
+// The space complexity of the tabulation version is better than that of the memoization version.
