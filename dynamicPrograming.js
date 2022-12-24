@@ -31,3 +31,20 @@ function fib(n){
 }
 // The big O of the Fibonacci Sequence is not great
     // Approximately Big O of 2N (very bad)
+
+// Memoization
+    // A way to remember (store) our answers to speed up the algorithm a lot.
+
+// A Memo-ized solution:
+function fibonacci(n, memo = []){
+    // checks to see if the value of memo is already stored, if so, it returns the value and skips the rest
+    if(memo[n] !== undefined) return memo[n];
+    // base case of 1 or 2
+    if(n <= 2) return 1;
+    // recursive function that passes through memo to accumulate the data
+    let res = fibonacci(n - 1, memo) + fibonacci(n - 2, memo);
+    // store memo of n
+    memo[n] = res;
+    return res;
+}
+// You would not need to calculate the entire other trees if you have the top value saved in the memo
