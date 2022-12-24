@@ -24,3 +24,10 @@
         // Longest simple path is NOT optimal substructure
         // Booking airline tickets is NOT optimal substructure
 
+// Recursive example with the Fibonacci Sequence (slow version)
+function fib(n){
+    if(n <= 2) return 1;
+    return fib(n-1) + fib(n-2);
+}
+// The big O of the Fibonacci Sequence is not great
+    // Approximately Big O of 2N (very bad)
